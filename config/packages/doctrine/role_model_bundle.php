@@ -11,7 +11,7 @@ return [
     'Slcorp\RoleModelBundle' => [
         'type'      => 'attribute',
         'is_bundle' => false,
-        'dir'       => '%kernel.project_dir%/vendor/Slcorp/role-model-bundle/src/Domain/Entity',
+        'dir'       => '%kernel.project_dir%/vendor/slcorp/role-model-bundle/src/Domain/Entity',
         'prefix'    => 'Slcorp\RoleModelBundle\Domain\Entity',
         'alias'     => 'Slcorp\RoleModelBundle',
     ],

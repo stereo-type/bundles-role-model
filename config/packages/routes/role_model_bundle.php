@@ -9,5 +9,5 @@ declare(strict_types=1);
 
 return [
     'Slcorp\RoleModelBundle\Presentation\Controller' =>
-        '%kernel.project_dir%/vendor/Slcorp/role-model-bundle/src/Presentation/Controller',
+        '%kernel.project_dir%/vendor/slcorp/role-model-bundle/src/Presentation/Controller',
 ];
