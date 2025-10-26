@@ -30,4 +30,17 @@ use Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken as BaseRefreshToken;
 #[ORM\Table(name: 'role_model_bundle_refresh_tokens')]
 class RefreshToken extends BaseRefreshToken
 {
+    #[ORM\Id]
+    #[ORM\Column(type: 'integer')]
+    #[ORM\GeneratedValue(strategy: 'AUTO')]
+    protected $id;
+
+    #[ORM\Column(type: 'string', length: 128, unique: true)]
+    protected $refreshToken;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    protected $username;
+
+    #[ORM\Column(type: 'datetime')]
+    protected $valid;
 }
