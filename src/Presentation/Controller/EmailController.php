@@ -63,7 +63,7 @@ class EmailController extends AbstractController
     #[Route('/test', methods: ['GET'])]
     public function test(Request $request, ParameterBagInterface $parameterBag): JsonResponse
     {
-        $d = $parameterBag->get('academ_city_role_model.secret_key');
+        $d = $parameterBag->get('slcorp_role_model.secret_key');
 
         return $this->json(['test' => $d]);
     }

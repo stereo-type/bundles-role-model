@@ -1,3 +1,3 @@
-academ_city_core:
+slcorp_core:
   # Указать класс сущности пользователя имплементирующей UserInterface
   user_class: Slcorp\RoleModelBundle\Domain\Entity\User

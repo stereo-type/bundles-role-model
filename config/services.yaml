@@ -1,9 +1,9 @@
 # config/services.yaml
 parameters:
-  academ_city_role_model.default_role: 'ROLE_USER'
-  academ_city_role_model.use_gid: false
-  academ_city_role_model.secret_key: '%env(resolve:Slcorp_ROLE_MODEL_GID_SECRET_KEY)%'
-  academ_city_role_model.max_length: 512
+  slcorp_role_model.default_role: 'ROLE_USER'
+  slcorp_role_model.use_gid: false
+  slcorp_role_model.secret_key: '%env(resolve:Slcorp_ROLE_MODEL_GID_SECRET_KEY)%'
+  slcorp_role_model.max_length: 512
   env(JWT_TOKEN_TTL): '3600'
   env(REFRESH_JWT_TOKEN_TTL): '2592000'
 

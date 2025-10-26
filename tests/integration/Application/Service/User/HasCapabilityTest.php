@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class HasCapabilityTest extends UseCaseTest
 {
-    protected const ENABLE_TRANSACTION = true;
+    protected const bool ENABLE_TRANSACTION = true;
     private RoleAssignRequestHandler $handlerAssign;
     private RoleAssignToUser $assignRoleToUserUseCase;
     private RoleRemoveFromUser $removeRoleFromUserUseCase;

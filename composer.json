@@ -1,6 +1,6 @@
 {
   "name": "slcorp/role-model-bundle",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "type": "symfony-bundle",
   "minimum-stability": "stable",
   "stability": "stable",
@@ -21,7 +21,7 @@
   "require": {
     "php": ">=8.4",
     "symfony/framework-bundle": "^7.3",
-    "slcorp/core-bundle": "^2.0.1",
+    "slcorp/core-bundle": "^2.0.4",
     "api-platform/core": "^4.2.2",
     "api-platform/doctrine-orm": "^4.2",
     "api-platform/graphql": "^4.2",

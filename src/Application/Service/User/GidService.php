@@ -22,9 +22,9 @@ readonly class GidService
     public function __construct(
         private ParameterBagInterface $parameterBag,
     ) {
-        $this->secret = (string)$this->parameterBag->get('academ_city_role_model.secret_key');
-        $this->needGid = (bool)$this->parameterBag->get('academ_city_role_model.use_gid');
-        $this->maxLength = (int)$this->parameterBag->get('academ_city_role_model.max_length');
+        $this->secret = (string)$this->parameterBag->get('slcorp_role_model.secret_key');
+        $this->needGid = (bool)$this->parameterBag->get('slcorp_role_model.use_gid');
+        $this->maxLength = (int)$this->parameterBag->get('slcorp_role_model.max_length');
     }
 
     public function needGidGenerate(): bool

@@ -49,10 +49,10 @@ class SlcorpRoleModelExtension extends Extension implements PrependExtensionInte
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
         $loader->load('services.yaml');
 
-        $container->setParameter('academ_city_role_model.default_role', $config['default_role']);
-        $container->setParameter('academ_city_role_model.use_gid', $config['use_gid']);
-        $container->setParameter('academ_city_role_model.secret_key', $config['secret_key']);
-        $container->setParameter('academ_city_role_model.max_length', $config['max_length']);
+        $container->setParameter('slcorp_role_model.default_role', $config['default_role']);
+        $container->setParameter('slcorp_role_model.use_gid', $config['use_gid']);
+        $container->setParameter('slcorp_role_model.secret_key', $config['secret_key']);
+        $container->setParameter('slcorp_role_model.max_length', $config['max_length']);
 
         $this->filesystem = new Filesystem();
         $this->projectRoot = $container->getParameter('kernel.project_dir');

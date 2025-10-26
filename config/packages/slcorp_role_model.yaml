@@ -1,4 +1,4 @@
-academ_city_role_model:
+slcorp_role_model:
   default_role: 'ROLE_USER'
   use_gid: false
   secret_key: '%env(resolve:Slcorp_ROLE_MODEL_GID_SECRET_KEY)%'

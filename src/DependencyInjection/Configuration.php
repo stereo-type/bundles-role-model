@@ -15,7 +15,7 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('academ_city_role_model');
+        $treeBuilder = new TreeBuilder('slcorp_role_model');
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
