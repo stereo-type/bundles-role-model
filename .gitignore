@@ -1,0 +1,35 @@
+###> symfony/framework-bundle ###
+/.env
+/.idea
+/.php-cs-fixer.cache
+/.phpunit.result.cache
+/var/
+/public/bundles/
+/public/build/
+/config/jwt
+/vendor/
+/node_modules/
+/composer.lock
+
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###

@@ -1,0 +1,47 @@
+# config/packages/security.yaml
+security:
+  # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+  password_hashers:
+    Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+  # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+  providers:
+    users_in_memory: { memory: null }
+    app_user_provider:
+      entity:
+        class: Slcorp\RoleModelBundle\Domain\Entity\User
+        property: username
+  firewalls:
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|images|js)/
+      security: false
+    login:
+      pattern: ^/api/role-model-bundle/users/login
+      stateless: true
+      json_login:
+        check_path: /api/role-model-bundle/users/login
+        username_path: username
+        password_path: password
+        success_handler: lexik_jwt_authentication.handler.authentication_success
+        failure_handler: lexik_jwt_authentication.handler.authentication_failure
+        provider: app_user_provider # Указываем провайдера для json_login
+    api:
+      pattern: ^/api/
+      stateless: true
+      provider: app_user_provider
+      jwt: ~
+      refresh_jwt: true
+      entry_point: jwt
+
+      # activate different ways to authenticate
+      # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+      # https://symfony.com/doc/current/security/impersonating_user.html
+      # switch_user: true
+
+  # Easy way to control access for large sections of your site
+  # Note: Only the *first* access control that matches will be used
+  access_control:
+    - { path: ^/api/role-model-bundle/users/login, roles: PUBLIC_ACCESS }
+    - { path: ^/api/role-model-bundle/users/registration, roles: PUBLIC_ACCESS }
+    - { path: ^/api/role-model-bundle/users/refresh-token, roles: PUBLIC_ACCESS }
+    - { path: ^/api, roles: ROLE_USER }

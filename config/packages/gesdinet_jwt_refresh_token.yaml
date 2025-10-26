@@ -1,0 +1,10 @@
+gesdinet_jwt_refresh_token:
+    refresh_token_class: Slcorp\RoleModelBundle\Domain\Entity\RefreshToken
+    ttl: '%env(int:REFRESH_JWT_TOKEN_TTL)%' # in seconds, default is 2592000
+    single_use: true
+    firewall: api
+    token_parameter_name: refreshToken
+    user_provider: app_user_provider
+    return_expiration: true
+    user_identity_field: username
+    return_expiration_parameter_name: refreshTokenExpiration

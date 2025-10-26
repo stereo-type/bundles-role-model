@@ -1,0 +1,23 @@
+doctrine:
+    dbal:
+        url: '%env(resolve:DATABASE_URL)%'
+
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            Slcorp\RoleModelBundle\Domain:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Domain/Entity'
+                prefix: 'Slcorp\RoleModelBundle\Domain\Entity'
+                alias: Slcorp\RoleModelBundle\Domain
+        filters:
+            soft_delete_filter:
+                class: Slcorp\RoleModelBundle\Infrastructure\Doctrine\Filter\SoftDeleteFilter
+                enabled: true
+
+when@test:
+    doctrine:
+        dbal:
+            dbname_suffix: '_test%env(default::TEST_TOKEN)%'

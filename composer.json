@@ -1,0 +1,109 @@
+{
+  "name": "slcorp/role-model-bundle",
+  "version": "2.0.0",
+  "type": "symfony-bundle",
+  "minimum-stability": "stable",
+  "stability": "stable",
+  "description": "A clean architecture Role Model bundle for Symfony.",
+  "keywords": [
+    "symfony",
+    "role",
+    "bundle",
+    "clean architecture"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Zhalayletdinov Vyacheslav",
+      "email": "evil_tut@mail.ru"
+    }
+  ],
+  "require": {
+    "php": ">=8.4",
+    "symfony/framework-bundle": "^7.3",
+    "slcorp/core-bundle": "^2.0.1",
+    "api-platform/core": "^4.2.2",
+    "api-platform/doctrine-orm": "^4.2",
+    "api-platform/graphql": "^4.2",
+    "api-platform/symfony": "^4.2",
+    "doctrine/dbal": "^4.3.4",
+    "doctrine/doctrine-bundle": "^3.0",
+    "doctrine/doctrine-migrations-bundle": "^3.5",
+    "doctrine/orm": "^3.5.2",
+    "symfony/runtime": "^7.3",
+    "symfony/yaml": "^7.3",
+    "symfony/dotenv": "^7.3",
+    "symfony/validator": "^7.3",
+    "symfony/serializer": "^7.3",
+    "symfony/property-access": "^7.3",
+    "symfony/security-bundle": "^7.3",
+    "gedmo/doctrine-extensions": "^3.17",
+    "symfony/security-core": "^7.3",
+    "symfony/password-hasher": "^7.3",
+    "symfony/twig-bundle": "^7.3",
+    "symfony/asset": "^7.2",
+    "symfony/expression-language": "^7.2",
+    "lexik/jwt-authentication-bundle": "^3.1",
+    "phpdocumentor/reflection-docblock": "^5.6",
+    "phpstan/phpdoc-parser": "^2.0",
+    "symfony/property-info": "^7.3",
+    "symfony/flex": "^2.8.2",
+    "gesdinet/jwt-refresh-token-bundle": "^1.4"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "symfony/phpunit-bridge": "^6.0",
+    "phpstan/phpstan": "^2.0",
+    "friendsofphp/php-cs-fixer": "^3.64",
+    "phpunit/phpunit": "^11.4",
+    "symfony/maker-bundle": "^1.61",
+    "phpstan/phpstan-doctrine": "^2.0",
+    "phpstan/phpstan-symfony": "^2.0",
+    "phpstan/extension-installer": "^1.4",
+    "phpstan/phpstan-phpunit": "^2.0",
+    "symfony/browser-kit": "^7.3",
+    "symfony/css-selector": "^7.3"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/stereo-type/bundles-core.git"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Slcorp\\RoleModelBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Slcorp\\RoleModelBundle\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-main": "1.x-dev",
+      "stable": "master"
+    },
+    "symfony": {
+      "allow-contrib": true,
+      "recipe": "config/recipes",
+      "docker": false
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "cs-fix": "php-cs-fixer fix",
+    "auto-scripts": {
+      "cache:clear": "symfony-cmd",
+      "assets:install %PUBLIC_DIR%": "symfony-cmd"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "symfony/runtime": true,
+      "phpstan/extension-installer": true,
+      "symfony/flex": true
+    }
+  }
+}

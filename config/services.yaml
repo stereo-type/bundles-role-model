@@ -1,0 +1,80 @@
+# config/services.yaml
+parameters:
+  academ_city_role_model.default_role: 'ROLE_USER'
+  academ_city_role_model.use_gid: false
+  academ_city_role_model.secret_key: '%env(resolve:Slcorp_ROLE_MODEL_GID_SECRET_KEY)%'
+  academ_city_role_model.max_length: 512
+  env(JWT_TOKEN_TTL): '3600'
+  env(REFRESH_JWT_TOKEN_TTL): '2592000'
+
+services:
+
+  _defaults:
+    autowire: true
+    autoconfigure: true
+  Slcorp\RoleModelBundle\:
+    resource: '../src/'
+    exclude:
+      - '../src/DependencyInjection/'
+      - '../src/Entity/'
+      - '../src/Kernel.php'
+  Symfony\Component\DependencyInjection\ContainerInterface:
+    alias: 'service_container'
+
+  # > USECASES
+  Slcorp\RoleModelBundle\Application\UseCase\Operation\OperationUpdate:
+    public: true
+  Slcorp\RoleModelBundle\Application\UseCase\Operation\OperationCreate:
+    public: true
+  Slcorp\RoleModelBundle\Application\UseCase\Operation\OperationDelete:
+    public: true
+  Slcorp\RoleModelBundle\Application\UseCase\Role\RoleAssignToUser:
+    public: true
+  Slcorp\RoleModelBundle\Application\UseCase\Role\RoleCreate:
+    public: true
+  Slcorp\RoleModelBundle\Application\UseCase\Role\RoleDelete:
+    public: true
+  Slcorp\RoleModelBundle\Application\UseCase\Role\RoleRemoveFromUser:
+    public: true
+  Slcorp\RoleModelBundle\Application\UseCase\Role\RoleUpdate:
+    public: true
+  Slcorp\RoleModelBundle\Application\UseCase\User\UserCreate:
+    public: true
+  Slcorp\RoleModelBundle\Application\UseCase\User\UserDelete:
+    public: true
+  Slcorp\RoleModelBundle\Application\UseCase\User\UserUpdate:
+    public: true
+  Slcorp\RoleModelBundle\Application\UseCase\Email\EmailCreate:
+    public: true
+  Slcorp\RoleModelBundle\Application\UseCase\Email\EmailUpdate:
+    public: true
+  Slcorp\RoleModelBundle\Application\UseCase\Email\EmailDelete:
+    public: true
+  Slcorp\RoleModelBundle\Application\Service\User\GidService:
+    public: true
+  # > COMMAND
+  Slcorp\RoleModelBundle\Application\Command\OpenApiEntityExportCommand:
+    tags: [ 'console.command' ]
+  # < COMMAND
+  # > LISTENERS
+  Slcorp\RoleModelBundle\Application\Listener\NoFoundErrorListener:
+    arguments:
+      $requestStack: '@request_stack'
+    tags:
+      - { name: 'kernel.event_subscriber' }
+  Slcorp\RoleModelBundle\Application\Listener\JWTExceptionListener:
+    tags:
+      - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_not_found, method: onJWTNotFound }
+      - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_failure, method: onAuthenticationFailure }
+      - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_invalid, method: onJWTNotInvalid }
+      - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_expired, method: onJWTExpired }
+  Slcorp\RoleModelBundle\Application\Listener\AccessDeniedErrorListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.exception, method: onAccessDenied }
+  Slcorp\RoleModelBundle\Application\Listener\BundleErrorListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.exception, method: onError }
+  Slcorp\RoleModelBundle\Application\Listener\JWTCreatedListener:
+    tags:
+      - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: onJWTCreated }
+  # < LISTENERS
