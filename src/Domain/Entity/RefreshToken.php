@@ -31,6 +31,4 @@ use Slcorp\RoleModelBundle\Presentation\Controller\RefreshTokenController;
 #[ORM\Table(name: 'role_model_bundle_refresh_tokens')]
 class RefreshToken extends BaseRefreshToken
 {
-
-
 }

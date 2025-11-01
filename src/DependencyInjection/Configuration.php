@@ -18,12 +18,13 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('slcorp_role_model');
         $rootNode = $treeBuilder->getRootNode();
 
+        /**@phpstan-ignore-next-line */
         $rootNode
             ->children()
                 ->scalarNode('default_role')
                    ->defaultValue('ROLE_USER')
                 ->end()
-                ->booleanNode('use_gid')
+                ?->booleanNode('use_gid')
                     ->defaultFalse() // По умолчанию GID не используется
                 ->end()
                 ->scalarNode('secret_key')
