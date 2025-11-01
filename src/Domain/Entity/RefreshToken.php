@@ -44,8 +44,7 @@ class RefreshToken implements RefreshTokenInterface
         ),
         ORM\GeneratedValue(strategy: 'AUTO'),
     ]
-    /**@phpstan-ignore-next-line */
-    protected int|string|null $id = null;
+    protected ?int $id = null;
 
     #[ORM\Column(
         name: 'refresh_token',
@@ -54,21 +53,21 @@ class RefreshToken implements RefreshTokenInterface
         unique: true,
         nullable: false,
     )]
-    protected ?string $refreshToken = null;
+    protected string $refreshToken;
 
     #[ORM\Column(
         name: 'username',
         type: Types::STRING,
         nullable: false,
     )]
-    protected ?string $username = null;
+    protected string $username;
 
     #[ORM\Column(
         name: 'valid',
         type: Types::DATETIME_MUTABLE,
         nullable: false,
     )]
-    protected ?DateTimeInterface $valid = null;
+    protected DateTimeInterface $valid;
 
 
     /**
@@ -85,11 +84,11 @@ class RefreshToken implements RefreshTokenInterface
             $valid->modify($ttl.' seconds');
         }
 
-        $model = new static();
+        $model = new self();
         $model->setRefreshToken($refreshToken);
-        $model->setUsername(method_exists($user, 'getUserIdentifier') ? $user->getUserIdentifier() : $user->getUsername());
+        $model->setUsername($user->getUserIdentifier());
         $model->setValid($valid);
-
+        /**@phpstan-ignore-next-line */
         return $model;
     }
 
@@ -122,7 +121,7 @@ class RefreshToken implements RefreshTokenInterface
         return $this;
     }
 
-    public function getValid(): ?DateTimeInterface
+    public function getValid(): DateTimeInterface
     {
         return $this->valid;
     }
@@ -134,14 +133,14 @@ class RefreshToken implements RefreshTokenInterface
         return $this;
     }
 
-    public function getUsername(): ?string
+    public function getUsername(): string
     {
         return $this->username;
     }
 
     public function isValid(): bool
     {
-        return null !== $this->valid && $this->valid >= new DateTime();
+        return $this->valid >= new DateTime();
     }
 
 }
