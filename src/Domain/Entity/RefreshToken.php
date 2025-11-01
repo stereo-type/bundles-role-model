@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Slcorp\RoleModelBundle\Domain\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Slcorp\RoleModelBundle\Application\DTO\RefreshTokenDTO;
 use Slcorp\RoleModelBundle\Application\DTO\RefreshTokenResponseDTO;
 use ApiPlatform\Metadata\ApiResource;
@@ -29,6 +30,12 @@ use Slcorp\RoleModelBundle\Presentation\Controller\RefreshTokenController;
 )]
 #[ORM\Entity]
 #[ORM\Table(name: 'role_model_bundle_refresh_tokens')]
+#[ORM\AttributeOverrides([
+    new ORM\AttributeOverride(
+        name: 'id',
+        column: new ORM\Column(name: 'id', type: Types::INTEGER, nullable: false)
+    ),
+])]
 class RefreshToken extends BaseRefreshToken
 {
 }
