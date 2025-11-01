@@ -17,6 +17,7 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Slcorp\RoleModelBundle\Infrastructure\Repository\DoctrineRefreshTokenRepository;
 use Slcorp\RoleModelBundle\Presentation\Controller\RefreshTokenController;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -31,7 +32,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
         ),
     ]
 )]
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: DoctrineRefreshTokenRepository::class)]
 #[ORM\Table(name: 'role_model_bundle_refresh_tokens')]
 class RefreshToken implements RefreshTokenInterface
 {

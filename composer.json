@@ -1,6 +1,6 @@
 {
   "name": "slcorp/role-model-bundle",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "type": "symfony-bundle",
   "minimum-stability": "dev",
   "stability": "stable",
