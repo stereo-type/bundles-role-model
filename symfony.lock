@@ -65,7 +65,7 @@
         ]
     },
     "gesdinet/jwt-refresh-token-bundle": {
-        "version": "1.4",
+        "version": "2.9999999",
         "recipe": {
             "repo": "github.com/symfony/recipes-contrib",
             "branch": "main",

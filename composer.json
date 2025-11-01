@@ -1,8 +1,8 @@
 {
   "name": "slcorp/role-model-bundle",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "type": "symfony-bundle",
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "stability": "stable",
   "description": "A clean architecture Role Model bundle for Symfony.",
   "keywords": [
@@ -48,7 +48,7 @@
     "phpstan/phpdoc-parser": "^2.0",
     "symfony/property-info": "^7.3",
     "symfony/flex": "^2.8.2",
-    "gesdinet/jwt-refresh-token-bundle": "^1.4"
+    "gesdinet/jwt-refresh-token-bundle": "dev-master"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",

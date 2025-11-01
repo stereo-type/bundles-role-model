@@ -14,15 +14,16 @@ use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
 use Doctrine\ORM\Mapping as ORM;
 use Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken as BaseRefreshToken;
+use Slcorp\RoleModelBundle\Presentation\Controller\RefreshTokenController;
 
 #[ApiResource(
     operations: [
         new Post(
             uriTemplate: '/role-model-bundle/users/refresh-token',
-            controller: 'gesdinet.jwtrefreshtoken::refresh',
-            shortName: 'Login Check',
-            input: RefreshTokenDTO::class,
-            output: RefreshTokenResponseDTO::class
+            controller:  RefreshTokenController::class,
+            shortName:   'Login Check',
+            input:       RefreshTokenDTO::class,
+            output:      RefreshTokenResponseDTO::class
         ),
     ]
 )]
@@ -30,17 +31,6 @@ use Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken as BaseRefreshToken;
 #[ORM\Table(name: 'role_model_bundle_refresh_tokens')]
 class RefreshToken extends BaseRefreshToken
 {
-    #[ORM\Id]
-    #[ORM\Column(type: 'integer')]
-    #[ORM\GeneratedValue(strategy: 'AUTO')]
-    protected $id;
 
-    #[ORM\Column(type: 'string', length: 128, unique: true)]
-    protected $refreshToken;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    protected $username;
-
-    #[ORM\Column(type: 'datetime')]
-    protected $valid;
 }

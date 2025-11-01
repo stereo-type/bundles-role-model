@@ -1,2 +1,4 @@
 gesdinet_jwt_refresh_token:
     path: /role-model-bundle/users/refresh-token
+    controller: Gesdinet\JWTRefreshTokenBundle\Controller\RefreshTokenController
+    methods: [ POST ]
