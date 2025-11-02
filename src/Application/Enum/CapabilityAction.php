@@ -29,10 +29,10 @@ enum CapabilityAction: string
             self::DELETE => 'Удаление',
             self::VIEW => 'Просмотр',
             self::LIST => 'Просмотр списка',
-            self::VIEW_SELF => 'Просмотр своего',
-            self::CREATE_SELF => 'Создание свое',
-            self::EDIT_SELF => 'Редактирование свое',
-            self::DELETE_SELF => 'Удаление свое',
+            self::VIEW_SELF => 'Просмотр (self)',
+            self::CREATE_SELF => 'Создание (self)',
+            self::EDIT_SELF => 'Редактирование (self)',
+            self::DELETE_SELF => 'Удаление (self)',
         };
     }
 }
