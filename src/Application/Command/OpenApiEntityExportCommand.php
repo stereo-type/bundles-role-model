@@ -104,10 +104,4 @@ final class OpenApiEntityExportCommand extends Command
 
         return Command::SUCCESS;
     }
-
-    /**php bin/console api:openapi:export-entity*/
-    public static function getDefaultName(): string
-    {
-        return 'api:openapi:export-entity';
-    }
 }
