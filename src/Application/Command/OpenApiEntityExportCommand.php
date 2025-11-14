@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Slcorp\RoleModelBundle\Application\Command;
 
 use ApiPlatform\OpenApi\Factory\OpenApiFactoryInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -21,6 +22,10 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Yaml\Yaml;
 
+#[AsCommand(
+    name: 'api:openapi:export-entity',
+    description: 'Dump the Open API documentation'
+)]
 final class OpenApiEntityExportCommand extends Command
 {
     private OpenApiFactoryInterface $openApiFactory;
@@ -40,7 +45,6 @@ final class OpenApiEntityExportCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setDescription('Dump the Open API documentation')
             ->addArgument('entity', InputArgument::OPTIONAL, 'Filter OpenAPI documentation by entity')
             ->addOption('yaml', 'y', InputOption::VALUE_NONE, 'Dump the documentation in YAML')
             ->addOption('output', 'o', InputOption::VALUE_OPTIONAL, 'Write output to file')

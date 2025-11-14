@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package    OpenApiEntityExportCommand.php
+ * @package    InitializeRoleModelBundleCommand.php
  * @copyright  2024 Zhalayletdinov Vyacheslav evil_tut@mail.ru
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -16,8 +16,13 @@ use Slcorp\RoleModelBundle\Application\Service\User\UserService;
 use Slcorp\RoleModelBundle\Application\UseCase\Role\RoleCreate;
 use Slcorp\RoleModelBundle\Application\UseCase\User\UserCreate;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 
+#[AsCommand(
+    name: 'role_model_bundle:init',
+    description: 'Команда инициализации ролевой системы'
+)]
 final class InitializeRoleModelBundleCommand extends Command
 {
     use CommandTrait;
@@ -67,9 +72,4 @@ final class InitializeRoleModelBundleCommand extends Command
         return Command::SUCCESS;
     }
 
-    /**php bin/console role_model_bundle:init*/
-    public static function getDefaultName(): string
-    {
-        return 'role_model_bundle:init';
-    }
 }
